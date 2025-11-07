@@ -1,0 +1,16 @@
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 虚拟环境
+.venv/
+
+# 数据 (不应上传到 Git)
+input.txt
+
+# 实验产出物 (模型权重和原始指标)
+results/*.pth
+results/*_metrics.json
+
+# (我们保留 results/ablation_study_loss_curve.png，
+#  所以不要忽略所有的 .png)
