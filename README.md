@@ -10,28 +10,28 @@ transformer-ablation/
 ├── README.md
 ├── requirements.txt
 ├── results/
-│   └── ablation_study_loss_curve.png  (最终产出的图表)
+│   └── ablation_study_loss_curve.png
 ├── scripts/
-│   ├── prepare_data.sh (下载数据脚本)
-│   └── run.sh (复现所有实验的脚本)
+│   ├── prepare_data.sh
+│   └── run.sh 
 └── src/
-    ├── data_utils.py   (数据加载与批处理)
-    ├── main.py         (主训练入口)
-    ├── model.py        (Transformer 模型定义)
-    └── utils.py        (辅助函数，如设置随机种子)
+    ├── data_utils.py
+    ├── main.py 
+    ├── model.py 
+    └── utils.py 
 ```
 
 ## 硬件要求
 
 * **CPU**: 可以运行。
-* **GPU**: 在 NVIDIA GPU（如 RTX 3060 或 T4）上，所有实验（共 4 个）预计可在 15-30 分钟内完成。
+* **GPU**: 在 NVIDIA GPU上，所有实验（共 4 个）预计可在 15-30 分钟内完成。
 * **内存**: > 8 GB RAM
 
 ## 如何复现实验
 
 **1. 克隆仓库**
 ```bash
-git clone [https://github.com/](https://github.com/)[您的用户名]/[您的仓库名].git
+git clone https://github.com/LlberC/transformer-ablation.git
 cd transformer-ablation
 ```
 
@@ -47,7 +47,7 @@ pip install -r requirements.txt
 
 **3. 运行所有实验**
 
-我们提供了一个脚本来自动下载数据、按顺序运行所有 4 个实验（使用固定的随机种子 `42`），并生成最终的对比图表。
+提供了一个脚本来自动下载数据、按顺序运行所有 4 个实验（使用固定的随机种子 `42`），并生成最终的对比图表。
 
 ```bash
 # 赋予脚本执行权限
@@ -68,7 +68,7 @@ bash scripts/run.sh
 
 ### 运行单个实验
 
-如果您想单独运行某个实验（例如，使用不同的超参数）：
+如果您想单独运行某个实验：
 
 ```bash
 # 确保数据已下载
@@ -85,4 +85,3 @@ python src/main.py --experiment no_pe --seed 42 --epochs 10 --lr 3e-4
 
 ![Transformer Ablation Study Loss Curve](results/ablation_study_loss_curve.png)
 
-*(在这里可以添加您对图表的分析和结论)*
