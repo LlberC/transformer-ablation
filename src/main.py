@@ -8,7 +8,6 @@ import json
 from copy import deepcopy
 from torch.optim.lr_scheduler import CosineAnnealingLR
 
-# 从我们拆分的文件中导入
 from model import (DecoderOnlyLanguageModel, CausalDecoderBlock,
                    NoResidualCausalDecoderBlock)  # (model.py 中其他的类是 model.py 内部使用的，这里可以不导入)
 from data_utils import load_data, get_batch
@@ -32,7 +31,6 @@ def train_one_epoch(model, optimizer, device, train_data, bptt, vocab_size):
         optimizer.zero_grad()
         output = model(data, mask)
 
-        # (现在可以正确访问 PAD_TOKEN)
         loss = F.cross_entropy(output.view(-1, vocab_size),
                                targets.view(-1),
                                ignore_index=PAD_TOKEN)
@@ -143,7 +141,6 @@ def main():
     N_HEADS_BASELINE = 4  # 基准头数
     D_FF = 256
     DROPOUT = 0.1
-    # (PAD_TOKEN 已移到全局)
 
     print(f"\n--- 初始化实验: {args.experiment} ---")
     print(f"Seed: {args.seed}, Epochs: {args.epochs}, LR: {args.lr}")

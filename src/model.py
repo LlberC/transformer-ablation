@@ -13,8 +13,6 @@ from torch.optim.lr_scheduler import CosineAnnealingLR
 
 
 # ----------------------------------------------------------------------
-# 积木 1, 2, 3: PositionalEncoding, PositionWiseFeedForward, MultiHeadAttention
-# (这三块积木 100% 相同，无需修改)
 # ----------------------------------------------------------------------
 class PositionalEncoding(nn.Module):
     def __init__(self, d_model, max_len=5000):
@@ -81,7 +79,6 @@ class MultiHeadAttention(nn.Module):
 
 # ----------------------------------------------------------------------
 # 积木 4: 因果解码器块 (Causal Decoder Block)
-# (与之前相同)
 # ----------------------------------------------------------------------
 class CausalDecoderBlock(nn.Module):
     def __init__(self, d_model, n_heads, d_ff, dropout=0.1):
@@ -105,7 +102,6 @@ class CausalDecoderBlock(nn.Module):
 
 # ----------------------------------------------------------------------
 # 完整的 Decoder-Only 语言模型
-# (与之前相同)
 # ----------------------------------------------------------------------
 class DecoderOnlyLanguageModel(nn.Module):
     def __init__(self, vocab_size, d_model, n_layers, n_heads, d_ff, dropout=0.1, max_len=5000):
